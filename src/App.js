@@ -1,25 +1,56 @@
-import logo from './logo.svg';
+import React from 'react'
+import './index.css';
+import {useState} from "react"
+import Arr from './components/Arr';
 import './App.css';
 
+
 function App() {
+  
+  const [selectedImage, setSelectedImage] = useState(Arr[0]);
+
+
+
+  
+  
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="wrapper">
+
+
+
+   
+    <div className="thumbnails">
+
+{Arr.map((img, index) => (
+
+  <img key={index} src={img} alt="thumb" className="thumb" 
+
+  onClick= {() => setSelectedImage(img)}     />
+
+))}
+
+
+
+<img src={selectedImage} alt="big" className="big" />
+
+</div>
+</div>
+
+  
+</div>
+
+
+ 
+
+
   );
 }
+
+  
+
+
+     
 
 export default App;
